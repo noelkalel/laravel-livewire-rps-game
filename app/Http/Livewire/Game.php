@@ -14,7 +14,7 @@ class Game extends Component
     public const DRAW     = 'DRAW';
 
     public $result         = 'No games played yet!';
-    public $resultClass    = '';
+    public $classColor     = '';
     public $playerChoice   = 'N/A';
     public $computerChoice = 'N/A';
     public $throwcount     = 0;
@@ -35,13 +35,11 @@ class Game extends Component
 
     public function computerRandomChoice()
     {
-        $randomThrowByPC = [
+        $this->computerChoice = [
             self::ROCK, 
             self::PAPER, 
             self::SCISSORS
         ][rand(0, 2)];
-
-        $this->computerChoice = $randomThrowByPC;
     }
 
     public function calculateResult()
@@ -50,19 +48,19 @@ class Game extends Component
             case self::ROCK:
                 switch ($this->computerChoice) {
                     case self::SCISSORS:
-                        $this->resultClass = 'text-primary';
+                        $this->classColor = 'text-primary';
                         $this->result = self::WIN;
                         $this->wincount++;
 
                         break;
                     case self::PAPER:
-                        $this->resultClass = 'text-success';
+                        $this->classColor = 'text-success';
                         $this->result = self::LOSS;
                         $this->losscount++;
 
                         break;
                     case self::ROCK:
-                        $this->resultClass = 'text-danger';
+                        $this->classColor = 'text-danger';
                         $this->result = self::DRAW;
                         $this->drawcount++;
 
@@ -73,19 +71,19 @@ class Game extends Component
             case self::PAPER:
                 switch ($this->computerChoice) {
                     case self::ROCK:
-                        $this->resultClass = 'text-primary';
+                        $this->classColor = 'text-primary';
                         $this->result = self::WIN;
                         $this->wincount++;
 
                         break;
                     case self::SCISSORS:
-                        $this->resultClass = 'text-success';
+                        $this->classColor = 'text-success';
                         $this->result = self::LOSS;
                         $this->losscount++;
 
                         break;
                     case self::PAPER:
-                        $this->resultClass = 'text-danger';
+                        $this->classColor = 'text-danger';
                         $this->result = self::DRAW;
                         $this->drawcount++;
 
@@ -96,19 +94,19 @@ class Game extends Component
             case self::SCISSORS:
                 switch ($this->computerChoice) {
                     case self::PAPER:
-                        $this->resultClass = 'text-primary';
+                        $this->classColor = 'text-primary';
                         $this->result = self::WIN;
                         $this->wincount++;
 
                         break;
                     case self::ROCK:
-                        $this->resultClass = 'text-success';
+                        $this->classColor = 'text-success';
                         $this->result = self::LOSS;
                         $this->losscount++;
 
                         break;
                     case self::SCISSORS:
-                        $this->resultClass = 'text-danger';
+                        $this->classColor = 'text-danger';
                         $this->result = self::DRAW;
                         $this->drawcount++;
 
@@ -120,7 +118,8 @@ class Game extends Component
     }
 
     public function resetScore()
-    {
+    {   
+        $this->classColor    = '';
         $this->result         = 'No games played yet!';
         $this->playerChoice   = 'N/A';
         $this->computerChoice = 'N/A';

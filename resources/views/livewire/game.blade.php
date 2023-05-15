@@ -22,10 +22,10 @@
     <hr>
 
     <p>
-        @if($resultClass)
+        @if($classColor)
             <b>Current Game Status:</b> 
 
-            <span class="{{ $resultClass }}">
+            <span class="{{ $classColor }}">
                 <b>
                     {{ $result }}
                 </b>
