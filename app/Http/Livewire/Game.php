@@ -42,6 +42,12 @@ class Game extends Component
         ][rand(0, 2)];
     }
 
+    public function emoji($randomEmoji){
+        return $randomEmoji[
+            rand(0, 2)
+        ];
+    }
+
     public function calculateResult()
     {
         switch ($this->playerChoice) {
@@ -49,19 +55,19 @@ class Game extends Component
                 switch ($this->computerChoice) {
                     case self::SCISSORS:
                         $this->classColor = 'text-primary';
-                        $this->result = self::WIN;
+                        $this->result = self::WIN . ' ' . $this->emoji(['😁', '😅', '😎']);
                         $this->wincount++;
 
                         break;
                     case self::PAPER:
                         $this->classColor = 'text-success';
-                        $this->result = self::LOSS;
+                        $this->result = self::LOSS . ' ' . $this->emoji(['😩', '😭', '🤨']);
                         $this->losscount++;
 
                         break;
                     case self::ROCK:
                         $this->classColor = 'text-danger';
-                        $this->result = self::DRAW;
+                        $this->result = self::DRAW . ' ' . $this->emoji(['😱', '🧐', '🙃']);
                         $this->drawcount++;
 
                         break;
@@ -72,19 +78,19 @@ class Game extends Component
                 switch ($this->computerChoice) {
                     case self::ROCK:
                         $this->classColor = 'text-primary';
-                        $this->result = self::WIN;
+                        $this->result = self::WIN . ' ' . $this->emoji(['😁', '😅', '😎']);
                         $this->wincount++;
 
                         break;
                     case self::SCISSORS:
                         $this->classColor = 'text-success';
-                        $this->result = self::LOSS;
+                        $this->result = self::LOSS . ' ' . $this->emoji(['😩', '😭', '🤨']);
                         $this->losscount++;
 
                         break;
                     case self::PAPER:
                         $this->classColor = 'text-danger';
-                        $this->result = self::DRAW;
+                        $this->result = self::DRAW . ' ' . $this->emoji(['😱', '🧐', '🙃']);
                         $this->drawcount++;
 
                         break;
@@ -95,19 +101,19 @@ class Game extends Component
                 switch ($this->computerChoice) {
                     case self::PAPER:
                         $this->classColor = 'text-primary';
-                        $this->result = self::WIN;
+                        $this->result = self::WIN . ' ' . $this->emoji(['😁', '😅', '😎']);
                         $this->wincount++;
 
                         break;
                     case self::ROCK:
                         $this->classColor = 'text-success';
-                        $this->result = self::LOSS;
+                        $this->result = self::LOSS . ' ' . $this->emoji(['😩', '😭', '🤨']);
                         $this->losscount++;
 
                         break;
                     case self::SCISSORS:
                         $this->classColor = 'text-danger';
-                        $this->result = self::DRAW;
+                        $this->result = self::DRAW . ' ' . $this->emoji(['😱', '🧐', '🙃']);
                         $this->drawcount++;
 
                         break;

@@ -21,9 +21,9 @@
         style="width: 64px; height: 64px;" wire:click="choose('SCISSORS')">
     <hr>
 
-    <p>
+    <div class="mb-2">
         @if($classColor)
-            <b>Current Game Status:</b> 
+            <b>Current Game Status:</b> <br>
 
             <span class="{{ $classColor }}">
                 <b>
@@ -31,29 +31,44 @@
                 </b>
             </span>
         @else
-            <b>Current Game Status:</b> 
+            <b>Current Game Status:</b> <br>
 
             {{ $result }}
         @endif
-    </p>
-    <p>
-        You threw: {{ $playerChoice }}
-    </p>
-    <p>
-        Computer threw: {{ $computerChoice }}
-    </p>
-    <p>
-        Total Throws: {{ $throwcount }}
-    </p>
-    <p>
-        Wins: {{ $wincount }}
-    </p>
-    <p>
-        Losses: {{ $losscount }}
-    </p>
-    <p>
-        Draws: {{ $drawcount }}
-    </p>
+    </div>
+    <div class="mb-2">
+        You threw: <br> 
+
+        {{ $playerChoice }}
+    </div>
+    <div class="mb-2">
+        Computer threw: <br> 
+
+        {{ $computerChoice }}
+    </div>
+    <div class="mb-2">
+        Total Throws: <br>
+
+        {{ $throwcount }}
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="mb-2">
+            Wins: <br>
+
+            {{ $wincount }}
+        </div>
+        <div class="mb-2 px-4">
+            Losses: <br>
+
+            {{ $losscount }}
+        </div>
+        <div class="mb-2">
+            Draws: <br>
+
+            {{ $drawcount }}
+        </div>
+    </div>
 
     <button 
         class="btn btn-success"
